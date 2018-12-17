@@ -1,0 +1,9 @@
+{
+  "update": {
+    "newVersionDownloaded": "Une nouvelle version de ? a été téléchargé.",
+    "installRelaunch": "Installer et relancer",
+    "later": "Plus tard",
+    "releaseAvailable": "La version ? est maintenant disponible. L'application seras installé la prochaine fois que vous redémarrerez l'application.",
+    "releaseNotes": "\n\nNotes de mise à jour:\n\n?"
+  }
+}

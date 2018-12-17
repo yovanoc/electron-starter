@@ -1,0 +1,68 @@
+{
+  "name": "starter",
+  "version": "0.1.0",
+  "description": "Starter Electron React/TypeScript",
+  "main": "dist/main/main.js",
+  "scripts": {
+    "compile": "electron-webpack",
+    "dist": "yarn compile && electron-builder",
+    "dist:dir": "yarn dist --dir",
+    "dev": "electron-webpack dev",
+    "lint": "tslint -c tslint.json 'src/**/*.{ts,tsx}' -t stylish",
+    "lint:fix": "yarn lint --fix",
+    "lint:check": "tslint-config-prettier-check ./tslint.json",
+    "sentry": "node sentry-symbols.js",
+    "postinstall": "electron-builder install-app-deps",
+    "release": "yarn compile && build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yovanoc/starter.git"
+  },
+  "keywords": [
+    "electron",
+    "react",
+    "typescript",
+    "webpack",
+    "starter"
+  ],
+  "author": "Christopher Yovanovitch <yovano_c@outlook.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/yovanoc/starter/issues"
+  },
+  "homepage": "https://github.com/yovanoc/starter#readme",
+  "devDependencies": {
+    "@sentry/cli": "^1.37.1",
+    "@sentry/webpack-plugin": "^1.6.2",
+    "@types/node": "^10.12.15",
+    "@types/react": "^16.7.17",
+    "@types/react-dom": "^16.0.11",
+    "awesome-typescript-loader": "^5.2.0",
+    "electron": "^3.0.12",
+    "electron-builder": "^20.38.3",
+    "electron-download": "^4.1.1",
+    "electron-webpack": "^2.6.1",
+    "electron-webpack-ts": "^3.1.0",
+    "node-sass": "^4.11.0",
+    "sass-loader": "^7.1.0",
+    "tslint": "^5.11.0",
+    "tslint-config-prettier": "^1.17.0",
+    "tslint-loader": "^3.6.0",
+    "tslint-react": "^3.6.0",
+    "typescript": "^3.2.2",
+    "webpack": "^4.27.1",
+    "webpack-build-notifier": "^0.1.30"
+  },
+  "dependencies": {
+    "@sentry/electron": "^0.14.0",
+    "axios": "^0.18.0",
+    "electron-log": "^2.2.17",
+    "electron-updater": "^4.0.6",
+    "firebase": "^5.7.0",
+    "office-ui-fabric-react": "^6.115.0",
+    "react": "^16.7.0-alpha.2",
+    "react-dom": "^16.7.0-alpha.2",
+    "source-map-support": "^0.5.9"
+  }
+}

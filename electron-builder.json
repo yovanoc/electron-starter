@@ -1,0 +1,42 @@
+{
+  "appId": "me.devchris.starter",
+  "productName": "Starter",
+  "mac": {
+    "category": "public.app-category.games"
+  },
+  "dmg": {
+    "contents": [{
+        "x": 110,
+        "y": 150
+      },
+      {
+        "x": 240,
+        "y": 150,
+        "type": "link",
+        "path": "/Applications"
+      }
+    ]
+  },
+  "linux": {
+    "target": ["AppImage"]
+  },
+  "win": {
+    "target": [{
+      "target": "nsis",
+      "arch": [
+        "x64",
+        "ia32"
+      ]
+    }],
+    "icon": "build/icon.ico"
+  },
+  "nsis": {
+    "oneClick": false,
+    "allowToChangeInstallationDirectory": true
+  },
+  "publish": {
+    "provider": "s3",
+    "bucket": "cookietouch"
+  },
+  "generateUpdatesFilesForAllChannels": true
+}

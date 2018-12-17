@@ -1,0 +1,9 @@
+{
+  "update": {
+    "newVersionDownloaded": "A new version of ? has been downloaded",
+    "installRelaunch": "Install and Relaunch",
+    "later": "Later",
+    "releaseAvailable": "The version ? is now available. It will be installed the next time you restart the application.",
+    "releaseNotes": "\n\nRelease notes:\n\n?"
+  }
+}
