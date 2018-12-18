@@ -79,8 +79,9 @@ let mainWindow: BrowserWindow | null;
 function createMainWindow() {
   const size = screen.getPrimaryDisplay().workAreaSize;
   const window = new BrowserWindow({
-    frame: false,
+    frame: process.platform === "darwin" ? true : false,
     height: 866,
+    titleBarStyle: process.platform === "darwin" ? "hidden" : "default",
     width: 1267,
     x: size.width / 2 - 1267 / 2,
     y: size.height / 2 - 866 / 2
