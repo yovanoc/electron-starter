@@ -40,7 +40,7 @@ const WindowControls: FunctionComponent<IWindowControlsProps> = props => {
 
       <div className="m-window-controls--product-name">Starter</div>
 
-      {isDarwin && (
+      {!isDarwin && (
         <ul className="m-window-controls--buttons">
           <li>
             <button

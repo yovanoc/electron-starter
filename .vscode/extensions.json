@@ -2,6 +2,7 @@
   "recommendations": [
     "esbenp.prettier-vscode",
     "eg2.tslint",
-    "editorconfig.editorconfig"
+    "editorconfig.editorconfig",
+    "visualstudioexptteam.vscodeintellicode"
   ]
 }

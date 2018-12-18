@@ -5,8 +5,7 @@ import {
   BrowserWindow,
   ipcMain,
   Menu,
-  MenuItemConstructorOptions,
-  screen
+  MenuItemConstructorOptions
 } from "electron";
 import log from "electron-log";
 import { appUpdater } from "./updater";
@@ -77,14 +76,14 @@ if (process.platform === "darwin") {
 let mainWindow: BrowserWindow | null;
 
 function createMainWindow() {
-  const size = screen.getPrimaryDisplay().workAreaSize;
   const window = new BrowserWindow({
+    center: true,
     frame: process.platform === "darwin" ? true : false,
-    height: 866,
+    height: 900,
+    minHeight: 866,
+    minWidth: 1267,
     titleBarStyle: process.platform === "darwin" ? "hidden" : "default",
-    width: 1267,
-    x: size.width / 2 - 1267 / 2,
-    y: size.height / 2 - 866 / 2
+    width: 1600
   });
 
   const url = isDevelopment
