@@ -22,7 +22,7 @@ presence();
 
 signin("yovano_c@outlook.com", "Kyra03112016");
 
-render(<Main />, document.getElementById("app"));
+render(<Main /> as any, document.getElementById("app"));
 
 ipcRenderer.on("go-update", (event: any, info: any) => {
   let message = Langs.go("update.releaseAvailable", info.version);
