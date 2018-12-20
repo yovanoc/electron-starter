@@ -8,6 +8,7 @@ import ZaapCheckbox from "renderer/components/zaap/ZaapCheckbox";
 import ZaapDropdown from "renderer/components/zaap/ZaapDropdown";
 import ZaapHrTitle from "renderer/components/zaap/ZaapHrTitle";
 import ZaapIcon from "renderer/components/zaap/ZaapIcon";
+import { ZaapIconTypes } from "renderer/components/zaap/ZaapIcon/icons";
 import ZaapInput from "renderer/components/zaap/ZaapInput";
 import ZaapPopup from "renderer/components/zaap/ZaapPopup";
 import ZaapProgress from "renderer/components/zaap/ZaapProgress";
@@ -72,21 +73,17 @@ const Main: FunctionComponent<IMainProps> = props => {
         </header>
 
         {currentTab === "games" && (
-          <div>
+          <div style={{ color: "black" }}>
             <Label>Starter {user && user.displayName}</Label>
             <ZaapButton>Hello</ZaapButton>
+            <ZaapButton>
+              <ZaapIcon icon={ZaapIconTypes.FOLDER} />
+              With Icon
+            </ZaapButton>
             <ZaapCheckbox />
             <ZaapDropdown />
-            <ZaapHrTitle>
-              <span
-                style={{
-                  color: "black"
-                }}
-              >
-                My Title
-              </span>
-            </ZaapHrTitle>
-            <ZaapIcon />
+            <ZaapHrTitle>My Title</ZaapHrTitle>
+            <ZaapIcon icon={ZaapIconTypes.GEAR} />
             <ZaapInput />
             {/* <ZaapPopup width="200px" height="300px">
               ZaapPopup
