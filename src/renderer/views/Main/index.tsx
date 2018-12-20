@@ -77,11 +77,21 @@ const Main: FunctionComponent<IMainProps> = props => {
             <ZaapButton>Hello</ZaapButton>
             <ZaapCheckbox />
             <ZaapDropdown />
-            <ZaapHrTitle />
+            <ZaapHrTitle>
+              <span
+                style={{
+                  color: "black"
+                }}
+              >
+                My Title
+              </span>
+            </ZaapHrTitle>
             <ZaapIcon />
             <ZaapInput />
-            <ZaapPopup />
-            <ZaapProgress />
+            {/* <ZaapPopup width="200px" height="300px">
+              ZaapPopup
+            </ZaapPopup> */}
+            <ZaapProgress value={50} />
             <ZaapRadioGroup />
             <ZaapSelect />
             <ZaapTabs />
