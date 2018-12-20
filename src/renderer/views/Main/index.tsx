@@ -55,6 +55,11 @@ const Main: FunctionComponent<IMainProps> = props => {
     setCurrentTab(name);
   };
 
+  const checkboxChanged = (newValue: boolean) => {
+    // tslint:disable-next-line:no-console
+    console.log("changed", newValue);
+  };
+
   return (
     <div id="app" className={classes}>
       {!windowIsFullscreen && <WindowControls />}
@@ -83,13 +88,22 @@ const Main: FunctionComponent<IMainProps> = props => {
               <ZaapIcon icon={ZaapIconTypes.FOLDER} />
               With Icon
             </ZaapButton>
-            <ZaapCheckbox />
-            <ZaapDropdown>
+            <ZaapCheckbox onChange={checkboxChanged}>
+              ZaapCheckbox 1
+            </ZaapCheckbox>
+            <ZaapCheckbox checked={true}>ZaapCheckbox 2</ZaapCheckbox>
+            <ZaapCheckbox checked={true} disabled={true}>
+              ZaapCheckbox 3
+            </ZaapCheckbox>
+            <ZaapDropdown label="myDropdown">
+              <ZaapDropdownItem />
+              <ZaapDropdownItem />
+            </ZaapDropdown>
+            <ZaapDropdown label="myDropdown2" openUp={true}>
               <ZaapDropdownItem />
               <ZaapDropdownItem />
             </ZaapDropdown>
             <ZaapHrTitle>My Title</ZaapHrTitle>
-            <ZaapIcon icon={ZaapIconTypes.GEAR} />
             <ZaapInput />
             {/* <ZaapPopup width="200px" height="300px">
               ZaapPopup
