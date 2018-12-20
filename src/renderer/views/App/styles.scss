@@ -40,6 +40,7 @@
   position: relative;
   height: calc(100% - var(--m-window-controls-height));
   transform: translateZ(0);
+  background-color: var(--color-black-pearl-80);
 }
 
 .m-app.m-app__fullscreen .m-app-container {
@@ -81,8 +82,7 @@
 }
 
 .m-app--menu {
-  font: var(--font-weight-dosis-semibold) var(--font-size-subtitle)
-    var(--font-family-dosis);
+  font: var(--font-weight-dosis-semibold) var(--font-size-subtitle) var(--font-family-dosis);
   line-height: var(--header-height);
   margin: 0 25px;
 }

@@ -1,12 +1,11 @@
 import Langs, { Languages } from "common/langs";
-import { PrimaryButton } from "office-ui-fabric-react/lib/Button";
-import { Label } from "office-ui-fabric-react/lib/Label";
 import React, {
   FunctionComponent,
   useEffect,
   useReducer,
   useState
 } from "react";
+import ZaapButton from "renderer/components/zaap/ZaapButton";
 import {
   IReducerProps,
   IReducerState,
@@ -69,20 +68,15 @@ const Reducer: FunctionComponent<IReducerProps> = props => {
 
   return (
     <div>
-      <Label>Lang: {lang}</Label>
-      <Label>Email: {state.emailAddress}</Label>
-      <Label>FirstName: {state.firstName}</Label>
-      <PrimaryButton
-        text="Random Email (Change Lang to FR)"
-        onClick={changeEmail}
-        style={{
-          marginRight: 20
-        }}
-      />
-      <PrimaryButton
-        text="Random Firstname (Change Lang to EN)"
-        onClick={changeFirstname}
-      />
+      <span>Lang: {lang}</span>
+      <span>Email: {state.emailAddress}</span>
+      <span>FirstName: {state.firstName}</span>
+      <ZaapButton onClick={changeEmail}>
+        Random Email (Change Lang to FR)
+      </ZaapButton>
+      <ZaapButton onClick={changeFirstname}>
+        Random Firstname (Change Lang to EN)
+      </ZaapButton>
     </div>
   );
 };

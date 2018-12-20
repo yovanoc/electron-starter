@@ -1,8 +1,9 @@
 import classnames from "classnames";
 import { isDevelopment } from "common/env";
 import { remote } from "electron";
-import { Icon } from "office-ui-fabric-react/lib/Icon";
 import React, { FunctionComponent } from "react";
+import ZaapIcon from "renderer/components/zaap/ZaapIcon";
+import { ZaapIconTypes } from "renderer/components/zaap/ZaapIcon/icons";
 import "./styles.scss";
 
 const WindowControls: FunctionComponent = props => {
@@ -49,7 +50,7 @@ const WindowControls: FunctionComponent = props => {
               onClick={showSettingsScreen}
               type="button"
             >
-              <Icon iconName="Settings" />
+              <ZaapIcon icon={ZaapIconTypes.GEAR} />
             </button>
           </li>
           <li>
@@ -58,7 +59,7 @@ const WindowControls: FunctionComponent = props => {
               onClick={minimize}
               type="button"
             >
-              <Icon iconName="ChromeMinimize" />
+              <ZaapIcon icon={ZaapIconTypes.MINIMIZE} />
             </button>
           </li>
           <li>
@@ -67,7 +68,7 @@ const WindowControls: FunctionComponent = props => {
               onClick={maximize}
               type="button"
             >
-              <Icon iconName="ArrowUpRight" />
+              <ZaapIcon icon={ZaapIconTypes.MAXIMIZE} />
             </button>
           </li>
           <li>
@@ -76,7 +77,7 @@ const WindowControls: FunctionComponent = props => {
               onClick={close}
               type="button"
             >
-              <Icon iconName="ChromeClose" />
+              <ZaapIcon icon={ZaapIconTypes.CLOSE} />
             </button>
           </li>
         </ul>

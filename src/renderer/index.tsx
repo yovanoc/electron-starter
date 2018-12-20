@@ -1,5 +1,4 @@
 import { init } from "@sentry/electron";
-import { initializeIcons } from "@uifabric/icons";
 import { isDevelopment } from "common/env";
 import Langs from "common/langs";
 import { ipcRenderer, remote } from "electron";
@@ -7,7 +6,7 @@ import React from "react";
 import { render } from "react-dom";
 import "renderer/assets/main.scss";
 import { initialize, presence, signin } from "renderer/FirebaseHelpers";
-import Main from "renderer/views/Main";
+import App from "renderer/views/App";
 
 if (!isDevelopment) {
   init({
@@ -15,14 +14,12 @@ if (!isDevelopment) {
   });
 }
 
-initializeIcons();
-
 initialize();
 presence();
 
 signin("yovano_c@outlook.com", "Kyra03112016");
 
-render(<Main /> as any, document.getElementById("app"));
+render(<App />, document.getElementById("app"));
 
 ipcRenderer.on("go-update", (event: any, info: any) => {
   let message = Langs.go("update.releaseAvailable", info.version);

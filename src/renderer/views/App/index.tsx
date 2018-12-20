@@ -1,8 +1,6 @@
 import classnames from "classnames";
 import firebase from "firebase/app";
-import { Label } from "office-ui-fabric-react/lib/Label";
 import React, { FunctionComponent, useEffect, useState } from "react";
-import WindowControls from "renderer/components/WindowControls";
 import ZaapButton from "renderer/components/zaap/ZaapButton";
 import ZaapCheckbox from "renderer/components/zaap/ZaapCheckbox";
 import ZaapDropdown from "renderer/components/zaap/ZaapDropdown";
@@ -20,11 +18,11 @@ import ZaapTabs from "renderer/components/zaap/ZaapTabs";
 import ZaapTab from "renderer/components/zaap/ZaapTabs/ZaapTab";
 import ZaapVideo from "renderer/components/zaap/ZaapVideo";
 import { signout } from "renderer/FirebaseHelpers";
-import { IMainProps } from "renderer/views/Main/types";
 import Reducer from "renderer/views/Reducer";
+import WindowControls from "renderer/views/WindowControls";
 import "./styles.scss";
 
-const Main: FunctionComponent<IMainProps> = props => {
+const App: FunctionComponent = props => {
   const [user, setUser] = useState<firebase.User | null>(null);
   const [currentTab, setCurrentTab] = useState("games");
 
@@ -61,6 +59,7 @@ const Main: FunctionComponent<IMainProps> = props => {
   };
 
   return (
+    // See for the 2 #app div
     <div id="app" className={classes}>
       {!windowIsFullscreen && <WindowControls />}
 
@@ -72,18 +71,19 @@ const Main: FunctionComponent<IMainProps> = props => {
 
           <ul className="m-app--menu">
             <li onClick={showTab("games")} className={liClasses("games")}>
-              games
+              Games
             </li>
             <li onClick={showTab("test")} className={liClasses("test")}>
-              test
+              Test
             </li>
           </ul>
         </header>
 
         {currentTab === "games" && (
-          <div style={{ color: "black" }}>
-            <Label>Starter {user && user.displayName}</Label>
+          <div>
+            <span>Starter {user && user.displayName}</span>
             <ZaapButton>Hello</ZaapButton>
+            <ZaapButton disabled={true}>Disabled</ZaapButton>
             <ZaapButton>
               <ZaapIcon icon={ZaapIconTypes.FOLDER} />
               With Icon
@@ -130,4 +130,4 @@ const Main: FunctionComponent<IMainProps> = props => {
   );
 };
 
-export default Main;
+export default App;
