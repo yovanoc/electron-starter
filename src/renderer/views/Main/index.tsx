@@ -6,15 +6,18 @@ import WindowControls from "renderer/components/WindowControls";
 import ZaapButton from "renderer/components/zaap/ZaapButton";
 import ZaapCheckbox from "renderer/components/zaap/ZaapCheckbox";
 import ZaapDropdown from "renderer/components/zaap/ZaapDropdown";
+import ZaapDropdownItem from "renderer/components/zaap/ZaapDropdown/ZaapDropdownItem";
 import ZaapHrTitle from "renderer/components/zaap/ZaapHrTitle";
 import ZaapIcon from "renderer/components/zaap/ZaapIcon";
 import { ZaapIconTypes } from "renderer/components/zaap/ZaapIcon/icons";
 import ZaapInput from "renderer/components/zaap/ZaapInput";
-import ZaapPopup from "renderer/components/zaap/ZaapPopup";
 import ZaapProgress from "renderer/components/zaap/ZaapProgress";
 import ZaapRadioGroup from "renderer/components/zaap/ZaapRadioGroup";
+import ZaapRadio from "renderer/components/zaap/ZaapRadioGroup/ZaapRadio";
 import ZaapSelect from "renderer/components/zaap/ZaapSelect";
+import ZaapOption from "renderer/components/zaap/ZaapSelect/ZaapOption";
 import ZaapTabs from "renderer/components/zaap/ZaapTabs";
+import ZaapTab from "renderer/components/zaap/ZaapTabs/ZaapTab";
 import ZaapVideo from "renderer/components/zaap/ZaapVideo";
 import { signout } from "renderer/FirebaseHelpers";
 import { IMainProps } from "renderer/views/Main/types";
@@ -81,7 +84,10 @@ const Main: FunctionComponent<IMainProps> = props => {
               With Icon
             </ZaapButton>
             <ZaapCheckbox />
-            <ZaapDropdown />
+            <ZaapDropdown>
+              <ZaapDropdownItem />
+              <ZaapDropdownItem />
+            </ZaapDropdown>
             <ZaapHrTitle>My Title</ZaapHrTitle>
             <ZaapIcon icon={ZaapIconTypes.GEAR} />
             <ZaapInput />
@@ -89,9 +95,18 @@ const Main: FunctionComponent<IMainProps> = props => {
               ZaapPopup
             </ZaapPopup> */}
             <ZaapProgress value={50} />
-            <ZaapRadioGroup />
-            <ZaapSelect />
-            <ZaapTabs />
+            <ZaapRadioGroup>
+              <ZaapRadio />
+              <ZaapRadio />
+            </ZaapRadioGroup>
+            <ZaapSelect>
+              <ZaapOption />
+              <ZaapOption />
+            </ZaapSelect>
+            <ZaapTabs>
+              <ZaapTab />
+              <ZaapTab />
+            </ZaapTabs>
             <ZaapVideo />
           </div>
         )}

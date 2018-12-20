@@ -26,10 +26,7 @@ const ZaapButton: FunctionComponent<IZaapButtonProps> = props => {
   };
 
   const blur = (e: React.MouseEvent<HTMLButtonElement>) => {
-    setTimeout(() => {
-      e.persist();
-      e.currentTarget.blur();
-    });
+    e.currentTarget.blur();
   };
 
   return (

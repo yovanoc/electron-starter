@@ -1,5 +1,6 @@
-import { Icon } from "office-ui-fabric-react/lib/Icon";
 import React, { FunctionComponent, useEffect } from "react";
+import ZaapIcon from "../ZaapIcon";
+import { ZaapIconTypes } from "../ZaapIcon/icons";
 import "./styles.scss";
 import { IZaapPopupProps } from "./types";
 
@@ -40,8 +41,7 @@ const ZaapPopup: FunctionComponent<IZaapPopupProps> = props => {
         >
           {props.children}
           <button className="c-zaap-popup--close" onClick={close}>
-            <Icon iconName="ChromeClose" />
-            {/* <ZaapIcon icon="close" /> */}
+            <ZaapIcon icon={ZaapIconTypes.CLOSE} />
           </button>
         </div>
       </div>
