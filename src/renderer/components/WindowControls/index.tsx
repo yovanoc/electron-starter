@@ -1,11 +1,11 @@
 import classnames from "classnames";
+import { isDevelopment } from "common/env";
 import { remote } from "electron";
 import { Icon } from "office-ui-fabric-react/lib/Icon";
 import React, { FunctionComponent } from "react";
-import { IWindowControlsProps } from "renderer/components/WindowControls/types";
 import "./styles.scss";
 
-const WindowControls: FunctionComponent<IWindowControlsProps> = props => {
+const WindowControls: FunctionComponent = props => {
   const isDarwin = process.platform === "darwin";
   const windowIsFocused = true;
   const classes = classnames("m-window-controls", {
@@ -28,14 +28,15 @@ const WindowControls: FunctionComponent<IWindowControlsProps> = props => {
     e.preventDefault();
   };
 
+  const isDev = isDevelopment;
+  const env = process.env.NODE_ENV;
+
   return (
     <div className={classes}>
       <div className="m-drag" onDoubleClick={maximize} />
 
       <div className="m-window-controls--info">
-        {/* <template v-if="environment !== 'production'">
-        {{ environment }}
-      </template> */}
+        {isDev && <React.Fragment>{env}</React.Fragment>}
       </div>
 
       <div className="m-window-controls--product-name">Starter</div>

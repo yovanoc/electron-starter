@@ -75,6 +75,9 @@ const Reducer: FunctionComponent<IReducerProps> = props => {
       <PrimaryButton
         text="Random Email (Change Lang to FR)"
         onClick={changeEmail}
+        style={{
+          marginRight: 20
+        }}
       />
       <PrimaryButton
         text="Random Firstname (Change Lang to EN)"

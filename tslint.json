@@ -3,10 +3,6 @@
   "extends": ["tslint:latest", "tslint-react", "tslint-config-prettier"],
   "jsRules": {},
   "rules": {
-    "no-namespace": false,
-    "no-console": false,
-    "no-eval": false,
-    "no-bitwise": false,
     "variable-name": [
       true,
       "ban-keywords",
@@ -15,7 +11,6 @@
       "allow-snake-case",
       "allow-pascal-case"
     ],
-    "max-classes-per-file": [true, 2],
     "no-empty-interface": false,
     "member-ordering": [
       true,
@@ -34,8 +29,7 @@
       }
     ],
     "no-implicit-dependencies": false,
-    "no-submodule-imports": false,
-    "no-object-literal-type-assertion": false
+    "no-submodule-imports": false
   },
   "rulesDirectory": []
 }

@@ -3,6 +3,18 @@ import firebase from "firebase/app";
 import { Label } from "office-ui-fabric-react/lib/Label";
 import React, { FunctionComponent, useEffect, useState } from "react";
 import WindowControls from "renderer/components/WindowControls";
+import ZaapButton from "renderer/components/zaap/ZaapButton";
+import ZaapCheckbox from "renderer/components/zaap/ZaapCheckbox";
+import ZaapDropdown from "renderer/components/zaap/ZaapDropdown";
+import ZaapHrTitle from "renderer/components/zaap/ZaapHrTitle";
+import ZaapIcon from "renderer/components/zaap/ZaapIcon";
+import ZaapInput from "renderer/components/zaap/ZaapInput";
+import ZaapPopup from "renderer/components/zaap/ZaapPopup";
+import ZaapProgress from "renderer/components/zaap/ZaapProgress";
+import ZaapRadioGroup from "renderer/components/zaap/ZaapRadioGroup";
+import ZaapSelect from "renderer/components/zaap/ZaapSelect";
+import ZaapTabs from "renderer/components/zaap/ZaapTabs";
+import ZaapVideo from "renderer/components/zaap/ZaapVideo";
 import { signout } from "renderer/FirebaseHelpers";
 import { IMainProps } from "renderer/views/Main/types";
 import Reducer from "renderer/views/Reducer";
@@ -60,7 +72,21 @@ const Main: FunctionComponent<IMainProps> = props => {
         </header>
 
         {currentTab === "games" && (
-          <Label>Starter {user && user.displayName}</Label>
+          <div>
+            <Label>Starter {user && user.displayName}</Label>
+            <ZaapButton>Hello</ZaapButton>
+            <ZaapCheckbox />
+            <ZaapDropdown />
+            <ZaapHrTitle />
+            <ZaapIcon />
+            <ZaapInput />
+            <ZaapPopup />
+            <ZaapProgress />
+            <ZaapRadioGroup />
+            <ZaapSelect />
+            <ZaapTabs />
+            <ZaapVideo />
+          </div>
         )}
         {currentTab === "test" && <Reducer />}
       </div>

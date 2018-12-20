@@ -912,10 +912,10 @@
   resolved "https://registry.yarnpkg.com/@types/classnames/-/classnames-2.2.6.tgz#dbe8a666156d556ed018e15a4c65f08937c3f628"
   integrity sha512-XHcYvVdbtAxVstjKxuULYqYaWIzHR15yr1pZj4fnGChuBVJlIAp9StJna0ZJNSgxPh4Nac2FL4JM3M11Tm6fqQ==
 
-"@types/node@^10.12.15":
-  version "10.12.15"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-10.12.15.tgz#20e85651b62fd86656e57c9c9bc771ab1570bc59"
-  integrity sha512-9kROxduaN98QghwwHmxXO2Xz3MaWf+I1sLVAA6KJDF5xix+IyXVhds0MAfdNwtcpSrzhaTsNB0/jnL86fgUhqA==
+"@types/node@^10.12.18":
+  version "10.12.18"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-10.12.18.tgz#1d3ca764718915584fcd9f6344621b7672665c67"
+  integrity sha512-fh+pAqt4xRzPfqA6eh3Z2y6fyZavRIumvjhaCL753+TVkGKGhpPeyrJG2JftD0T9q4GF00KjefsQ+PQNDdWQaQ==
 
 "@types/node@^8.0.24":
   version "8.10.38"
@@ -1292,7 +1292,42 @@ app-builder-bin@2.6.0:
   resolved "https://registry.yarnpkg.com/app-builder-bin/-/app-builder-bin-2.6.0.tgz#b4e5d5ee5bcf264818ab9830b95338f9f419de5d"
   integrity sha512-7HphDMS2U9MwAA6R7lSU6MASFR/D+VJDb5hQ4Fn2coOMyaRn71QDWPdG0TPnDr88F2I7bsTuHYud28S/yN2lZw==
 
-app-builder-lib@20.38.3, app-builder-lib@~20.38.3:
+app-builder-bin@2.6.1:
+  version "2.6.1"
+  resolved "https://registry.yarnpkg.com/app-builder-bin/-/app-builder-bin-2.6.1.tgz#aa97f82d341dfa6f1269d78955482d619cc613ed"
+  integrity sha512-W0l85O+s6lOaziWqAhszPfwiG0s15FvMBP9j9i/bknsMccUkwN60u4Cy7yYtf6akCUDuJenLqpTX4/xvkq1egw==
+
+app-builder-lib@20.38.4:
+  version "20.38.4"
+  resolved "https://registry.yarnpkg.com/app-builder-lib/-/app-builder-lib-20.38.4.tgz#71a515d01f4f2bd48a67495804f659a46c35303c"
+  integrity sha512-JbuAJQBndcCW6BJVIb2tPjM5wiuIjz2LUlbyVxNIawM2wFKUBV9kr0N3RNBJFxcrCEuA9oprMUCoymJdrMUVfA==
+  dependencies:
+    "7zip-bin" "~4.1.0"
+    app-builder-bin "2.6.1"
+    async-exit-hook "^2.0.1"
+    bluebird-lst "^1.0.6"
+    builder-util "9.6.1"
+    builder-util-runtime "8.1.0"
+    chromium-pickle-js "^0.2.0"
+    debug "^4.1.0"
+    ejs "^2.6.1"
+    electron-osx-sign "0.4.11"
+    electron-publish "20.38.3"
+    fs-extra-p "^7.0.0"
+    hosted-git-info "^2.7.1"
+    is-ci "^2.0.0"
+    isbinaryfile "^3.0.3"
+    js-yaml "^3.12.0"
+    lazy-val "^1.0.3"
+    minimatch "^3.0.4"
+    normalize-package-data "^2.4.0"
+    plist "^3.0.1"
+    read-config-file "3.2.0"
+    sanitize-filename "^1.6.1"
+    semver "^5.6.0"
+    temp-file "^3.3.2"
+
+app-builder-lib@~20.38.3:
   version "20.38.3"
   resolved "https://registry.yarnpkg.com/app-builder-lib/-/app-builder-lib-20.38.3.tgz#3998cbe07cad6eb45918eba43aa6313bf6cc15c2"
   integrity sha512-xZTzWgH2pDUfic9KAv17julgp4/HVD451AzYdyFcwGTrDvLjoZee2Ua6/Els88GKbH3QIkpntJEn5gCwdc4O9A==
@@ -1825,6 +1860,24 @@ builder-util@9.6.0, builder-util@~9.6.0:
     debug "^4.1.0"
     fs-extra-p "^7.0.0"
     is-ci "^1.2.1"
+    js-yaml "^3.12.0"
+    source-map-support "^0.5.9"
+    stat-mode "^0.2.2"
+    temp-file "^3.3.2"
+
+builder-util@9.6.1:
+  version "9.6.1"
+  resolved "https://registry.yarnpkg.com/builder-util/-/builder-util-9.6.1.tgz#4625620b1535fe40dcacb178d24fe56d0d7c8957"
+  integrity sha512-8MljKTjeV+A+LLVexuWEV3EpWbiUcsHHrB4Bg2qNo/3dC+vTo6g/27+W3Ij7Ij1UTobSkNBstFieWijXJCco9A==
+  dependencies:
+    "7zip-bin" "~4.1.0"
+    app-builder-bin "2.6.1"
+    bluebird-lst "^1.0.6"
+    builder-util-runtime "^8.1.0"
+    chalk "^2.4.1"
+    debug "^4.1.0"
+    fs-extra-p "^7.0.0"
+    is-ci "^2.0.0"
     js-yaml "^3.12.0"
     source-map-support "^0.5.9"
     stat-mode "^0.2.2"
@@ -2971,14 +3024,14 @@ ejs@^2.6.1:
   resolved "https://registry.yarnpkg.com/ejs/-/ejs-2.6.1.tgz#498ec0d495655abc6f23cd61868d926464071aa0"
   integrity sha512-0xy4A/twfrRCnkhfk8ErDi5DqdAsAqeGxht4xkCUrsvhhbQNs7E+4jV0CN7+NKIY0aHE72+XvqtBIXzD31ZbXQ==
 
-electron-builder@^20.38.3:
-  version "20.38.3"
-  resolved "https://registry.yarnpkg.com/electron-builder/-/electron-builder-20.38.3.tgz#32eaa08575b5036e4dafc78adef25ff5a7370004"
-  integrity sha512-KVM90FtSmryi6JT+YEOTJPsB34ZPdrJn2X18Rt8uatSQPj4vVCSwT834cyvF79idRea8yRVoMcm69XtH9VNPjg==
+electron-builder@^20.38.4:
+  version "20.38.4"
+  resolved "https://registry.yarnpkg.com/electron-builder/-/electron-builder-20.38.4.tgz#67727529ffb87e7fdd78b3a84ea0d6c22bf04ec2"
+  integrity sha512-WHOr3Rz2wktxV5TqmRL6woO9/wrIZeRfJPSEXOhgfgLskE5Sp2Aer0zAF7lHNqXuG6JhU+0I9IYFAxa73MTs9w==
   dependencies:
-    app-builder-lib "20.38.3"
+    app-builder-lib "20.38.4"
     bluebird-lst "^1.0.6"
-    builder-util "9.6.0"
+    builder-util "9.6.1"
     builder-util-runtime "8.1.0"
     chalk "^2.4.1"
     dmg-builder "6.5.3"
@@ -5658,10 +5711,10 @@ obuf@^1.0.0, obuf@^1.1.1:
   resolved "https://registry.yarnpkg.com/obuf/-/obuf-1.1.2.tgz#09bea3343d41859ebd446292d11c9d4db619084e"
   integrity sha512-PX1wu0AmAdPqOL1mWhqmlOd8kOIZQwGZw6rh7uby9fTc5lhaOWFLX3I6R1hrF9k3zUY40e6igsLGkDXK92LJNg==
 
-office-ui-fabric-react@^6.116.0:
-  version "6.116.0"
-  resolved "https://registry.yarnpkg.com/office-ui-fabric-react/-/office-ui-fabric-react-6.116.0.tgz#23cfaf0e2da7708d110afdd7c6f63bd613e6f00b"
-  integrity sha512-3Qveou/Zpqxoj8FwhViMEVA9ZIQ9vZt8zPTksrps9goC8aeX0hjjaDvoPWWZOrtea6oDjO8oG64Gcc+y7E4iGQ==
+office-ui-fabric-react@^6.116.2:
+  version "6.116.2"
+  resolved "https://registry.yarnpkg.com/office-ui-fabric-react/-/office-ui-fabric-react-6.116.2.tgz#63b30d31a636fa303a76963c3654347dffec8dc1"
+  integrity sha512-8rTAKGpn6G9ZS8qwwMy5p7Yj9VZgM85S4RNMHBob+fYIvubWih46pFei/1XIgGo+cG1JRWHhicXNrCbXwzLeUQ==
   dependencies:
     "@microsoft/load-themed-styles" "^1.7.13"
     "@uifabric/icons" ">=6.3.0 <7.0.0"
@@ -6951,9 +7004,9 @@ sax@^1.2.4, sax@~1.2.1, sax@~1.2.4:
   integrity sha512-NqVDv9TpANUjFm0N8uM5GxL36UgKi9/atZw+x7YFnQ8ckwFGKrl4xX4yWtrey3UJm5nP1kUbnYgLopqWNSRhWw==
 
 scheduler@^0.12.0-alpha.2:
-  version "0.12.0-alpha.3"
-  resolved "https://registry.yarnpkg.com/scheduler/-/scheduler-0.12.0-alpha.3.tgz#59afcaba1cb79e3e8bee91de94eb8f42c9152c2b"
-  integrity sha512-KADuBlOWSrT/DCt/oA+NgsNamRCsfz7wj+leaeGjGHipNClsqhjOPogKkJgem6WLAv/QzxW8bE7zlGc9OxiYSQ==
+  version "0.12.0"
+  resolved "https://registry.yarnpkg.com/scheduler/-/scheduler-0.12.0.tgz#8ab17699939c0aedc5a196a657743c496538647b"
+  integrity sha512-t7MBR28Akcp4Jm+QoR63XgAi9YgCUmgvDHqf5otgAj4QvdoBE4ImCX0ffehefePPG+aitiYHp0g/mW6s4Tp+dw==
   dependencies:
     loose-envify "^1.1.0"
     object-assign "^4.1.1"
@@ -8219,10 +8272,10 @@ webpack-sources@^1.1.0, webpack-sources@^1.3.0:
     source-list-map "^2.0.0"
     source-map "~0.6.1"
 
-webpack@^4.27.1:
-  version "4.27.1"
-  resolved "https://registry.yarnpkg.com/webpack/-/webpack-4.27.1.tgz#5f2e2db446d2266376fa15d7d2277a1a9c2e12bb"
-  integrity sha512-WArHiLvHrlfyRM8i7f+2SFbr/XbQ0bXqTkPF8JpHOzub5482Y3wx7rEO8stuLGOKOgZJcqcisLhD7LrM/+fVMw==
+webpack@^4.28.0:
+  version "4.28.0"
+  resolved "https://registry.yarnpkg.com/webpack/-/webpack-4.28.0.tgz#6bdc26c17fe4c7e28c29fa002e6d37ac92caae9e"
+  integrity sha512-gPNTMGR5ZlBucXmEQ34TRxRqXnGYq9P3t8LeP9rvhkNnr+Cn+HvZMxGuJ4Hl7zdmoRUZP+GosniqJiadXW/RqQ==
   dependencies:
     "@webassemblyjs/ast" "1.7.11"
     "@webassemblyjs/helper-module-context" "1.7.11"
