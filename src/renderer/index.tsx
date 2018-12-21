@@ -6,7 +6,7 @@ import React from "react";
 import { render } from "react-dom";
 import "renderer/assets/main.scss";
 import { initialize, presence, signin } from "renderer/FirebaseHelpers";
-import App from "renderer/views/App";
+import ZaapLoading from "./components/zaap/ZaapLoading";
 
 if (!isDevelopment) {
   init({
@@ -14,12 +14,33 @@ if (!isDevelopment) {
   });
 }
 
-initialize();
-presence();
+render(<ZaapLoading />, document.getElementById("app"));
 
-signin("yovano_c@outlook.com", "Kyra03112016");
+const toLoad = () => {
+  initialize();
+  presence();
 
-render(<App />, document.getElementById("app"));
+  signin("yovano_c@outlook.com", "Kyra03112016");
+};
+
+const loader = () => {
+  const loading = document.getElementById("loading")!;
+  if (process.platform === "darwin" || process.env.SIMULATE_DARWIN) {
+    loading.classList.add("m-window-loading__darwin");
+  }
+  // Wait the window is ready to fadeIn loading
+  setTimeout(() => loading.classList.add("show"), 50);
+
+  toLoad();
+
+  setTimeout(() => {
+    const container = document.getElementById("container")!;
+    container.classList.add("show");
+    loading.remove();
+  }, 5000);
+};
+
+loader();
 
 ipcRenderer.on("go-update", (event: any, info: any) => {
   let message = Langs.go("update.releaseAvailable", info.version);

@@ -83,6 +83,9 @@ function createMainWindow() {
     minHeight: 866,
     minWidth: 1267,
     titleBarStyle: process.platform === "darwin" ? "hidden" : "default",
+    webPreferences: {
+      nodeIntegration: true
+    },
     width: 1600
   });
 

@@ -33,7 +33,7 @@
   },
   "homepage": "https://github.com/yovanoc/starter#readme",
   "devDependencies": {
-    "@sentry/cli": "^1.37.1",
+    "@sentry/cli": "^1.37.2",
     "@sentry/webpack-plugin": "^1.6.2",
     "@types/classnames": "^2.2.6",
     "@types/node": "^10.12.18",

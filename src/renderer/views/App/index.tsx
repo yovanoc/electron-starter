@@ -1,4 +1,5 @@
 import classnames from "classnames";
+import { remote } from "electron";
 import firebase from "firebase/app";
 import React, {
   FunctionComponent,
@@ -43,8 +44,8 @@ const App: FunctionComponent = props => {
     };
   }, []);
 
-  const windowIsMaximized = false;
-  const windowIsFullscreen = false;
+  const windowIsMaximized = remote.getCurrentWindow().isMaximized();
+  const windowIsFullscreen = remote.getCurrentWindow().isFullScreen();
 
   const classes = classnames("m-app", {
     "m-app__darwin": process.platform === "darwin",
@@ -68,7 +69,7 @@ const App: FunctionComponent = props => {
 
   return (
     <MainContextProvider>
-      // See for the 2 #app div
+      {/* See for the 2 #app div */}
       <div id="app" className={classes}>
         {!windowIsFullscreen && <WindowControls />}
 
@@ -93,7 +94,9 @@ const App: FunctionComponent = props => {
 
           {currentTab === "games" && (
             <div>
-              <span>Starter {user && user.displayName}</span>
+              <ZaapHrTitle>
+                Starter {user && user.displayName} {currentTab}
+              </ZaapHrTitle>
               <ZaapButton>Hello</ZaapButton>
               <ZaapButton disabled={true}>Disabled</ZaapButton>
               <ZaapButton>
@@ -115,7 +118,6 @@ const App: FunctionComponent = props => {
                 <ZaapDropdownItem />
                 <ZaapDropdownItem />
               </ZaapDropdown>
-              <ZaapHrTitle>My Title</ZaapHrTitle>
               <ZaapInput />
               {/* <ZaapPopup width="200px" height="300px">
               ZaapPopup
