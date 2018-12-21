@@ -40,7 +40,7 @@
     "@types/react": "^16.7.17",
     "@types/react-dom": "^16.0.11",
     "awesome-typescript-loader": "^5.2.0",
-    "electron": "^3.0.13",
+    "electron": "^4.0.0",
     "electron-builder": "^20.38.4",
     "electron-download": "^4.1.1",
     "electron-webpack": "^2.6.1",
@@ -52,7 +52,7 @@
     "tslint-loader": "^3.6.0",
     "tslint-react": "^3.6.0",
     "typescript": "^3.2.2",
-    "webpack": "^4.28.0",
+    "webpack": "^4.28.1",
     "webpack-build-notifier": "^0.1.30"
   },
   "dependencies": {
@@ -61,7 +61,7 @@
     "classnames": "^2.2.6",
     "electron-log": "^2.2.17",
     "electron-updater": "^4.0.6",
-    "firebase": "^5.7.0",
+    "firebase": "^5.7.1",
     "react": "^16.7.0-alpha.2",
     "react-dom": "^16.7.0-alpha.2",
     "redux": "^4.0.1",

@@ -1,6 +1,11 @@
 import classnames from "classnames";
 import firebase from "firebase/app";
-import React, { FunctionComponent, useEffect, useState } from "react";
+import React, {
+  FunctionComponent,
+  useContext,
+  useEffect,
+  useState
+} from "react";
 import ZaapButton from "renderer/components/zaap/ZaapButton";
 import ZaapCheckbox from "renderer/components/zaap/ZaapCheckbox";
 import ZaapDropdown from "renderer/components/zaap/ZaapDropdown";
@@ -17,6 +22,7 @@ import ZaapOption from "renderer/components/zaap/ZaapSelect/ZaapOption";
 import ZaapTabs from "renderer/components/zaap/ZaapTabs";
 import ZaapTab from "renderer/components/zaap/ZaapTabs/ZaapTab";
 import ZaapVideo from "renderer/components/zaap/ZaapVideo";
+import { MainContext, MainContextProvider } from "renderer/data/MainContext";
 import { signout } from "renderer/FirebaseHelpers";
 import Reducer from "renderer/views/Reducer";
 import WindowControls from "renderer/views/WindowControls";
@@ -25,6 +31,8 @@ import "./styles.scss";
 const App: FunctionComponent = props => {
   const [user, setUser] = useState<firebase.User | null>(null);
   const [currentTab, setCurrentTab] = useState("games");
+
+  const mainContext = useContext(MainContext);
 
   useEffect(() => {
     const unsubscribe = firebase.auth().onAuthStateChanged(u => {
@@ -59,74 +67,79 @@ const App: FunctionComponent = props => {
   };
 
   return (
-    // See for the 2 #app div
-    <div id="app" className={classes}>
-      {!windowIsFullscreen && <WindowControls />}
+    <MainContextProvider>
+      // See for the 2 #app div
+      <div id="app" className={classes}>
+        {!windowIsFullscreen && <WindowControls />}
 
-      <div className="m-app-container">
-        <header className="m-app--header">
-          <div className="m-app--header-logo">
-            <img src={require("renderer/assets/logo.png")} alt="logo" />
-          </div>
+        <div className="m-app-container">
+          <header className="m-app--header">
+            <div className="m-app--header-logo">
+              <img src={require("renderer/assets/logo.png")} alt="logo" />
+            </div>
 
-          <ul className="m-app--menu">
-            <li onClick={showTab("games")} className={liClasses("games")}>
-              Games
-            </li>
-            <li onClick={showTab("test")} className={liClasses("test")}>
-              Test
-            </li>
-          </ul>
-        </header>
+            <ul className="m-app--menu">
+              <li onClick={showTab("games")} className={liClasses("games")}>
+                Games{" "}
+                {`Width: ${mainContext.windowSizes.width} | Height: ${
+                  mainContext.windowSizes.height
+                }`}
+              </li>
+              <li onClick={showTab("test")} className={liClasses("test")}>
+                Test
+              </li>
+            </ul>
+          </header>
 
-        {currentTab === "games" && (
-          <div>
-            <span>Starter {user && user.displayName}</span>
-            <ZaapButton>Hello</ZaapButton>
-            <ZaapButton disabled={true}>Disabled</ZaapButton>
-            <ZaapButton>
-              <ZaapIcon icon={ZaapIconTypes.FOLDER} />
-              With Icon
-            </ZaapButton>
-            <ZaapCheckbox onChange={checkboxChanged}>
-              ZaapCheckbox 1
-            </ZaapCheckbox>
-            <ZaapCheckbox checked={true}>ZaapCheckbox 2</ZaapCheckbox>
-            <ZaapCheckbox checked={true} disabled={true}>
-              ZaapCheckbox 3
-            </ZaapCheckbox>
-            <ZaapDropdown label="myDropdown">
-              <ZaapDropdownItem />
-              <ZaapDropdownItem />
-            </ZaapDropdown>
-            <ZaapDropdown label="myDropdown2" openUp={true}>
-              <ZaapDropdownItem />
-              <ZaapDropdownItem />
-            </ZaapDropdown>
-            <ZaapHrTitle>My Title</ZaapHrTitle>
-            <ZaapInput />
-            {/* <ZaapPopup width="200px" height="300px">
+          {currentTab === "games" && (
+            <div>
+              <span>Starter {user && user.displayName}</span>
+              <ZaapButton>Hello</ZaapButton>
+              <ZaapButton disabled={true}>Disabled</ZaapButton>
+              <ZaapButton>
+                <ZaapIcon icon={ZaapIconTypes.FOLDER} />
+                With Icon
+              </ZaapButton>
+              <ZaapCheckbox onChange={checkboxChanged}>
+                ZaapCheckbox 1
+              </ZaapCheckbox>
+              <ZaapCheckbox checked={true}>ZaapCheckbox 2</ZaapCheckbox>
+              <ZaapCheckbox checked={true} disabled={true}>
+                ZaapCheckbox 3
+              </ZaapCheckbox>
+              <ZaapDropdown label="myDropdown">
+                <ZaapDropdownItem />
+                <ZaapDropdownItem />
+              </ZaapDropdown>
+              <ZaapDropdown label="myDropdown2" openUp={true}>
+                <ZaapDropdownItem />
+                <ZaapDropdownItem />
+              </ZaapDropdown>
+              <ZaapHrTitle>My Title</ZaapHrTitle>
+              <ZaapInput />
+              {/* <ZaapPopup width="200px" height="300px">
               ZaapPopup
             </ZaapPopup> */}
-            <ZaapProgress value={50} />
-            <ZaapRadioGroup>
-              <ZaapRadio />
-              <ZaapRadio />
-            </ZaapRadioGroup>
-            <ZaapSelect>
-              <ZaapOption />
-              <ZaapOption />
-            </ZaapSelect>
-            <ZaapTabs>
-              <ZaapTab />
-              <ZaapTab />
-            </ZaapTabs>
-            <ZaapVideo />
-          </div>
-        )}
-        {currentTab === "test" && <Reducer />}
+              <ZaapProgress value={50} />
+              <ZaapRadioGroup>
+                <ZaapRadio />
+                <ZaapRadio />
+              </ZaapRadioGroup>
+              <ZaapSelect>
+                <ZaapOption />
+                <ZaapOption />
+              </ZaapSelect>
+              <ZaapTabs>
+                <ZaapTab />
+                <ZaapTab />
+              </ZaapTabs>
+              <ZaapVideo />
+            </div>
+          )}
+          {currentTab === "test" && <Reducer />}
+        </div>
       </div>
-    </div>
+    </MainContextProvider>
   );
 };
 

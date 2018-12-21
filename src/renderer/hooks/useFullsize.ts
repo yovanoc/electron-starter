@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 
 export default function useFullsize() {
-  const [width, setWidth] = useState(window.innerWidth);
-  const [height, setHeight] = useState(window.innerHeight);
+  const [width, setWidth] = useState(0);
+  const [height, setHeight] = useState(0);
 
   useEffect(() => {
     const handler = () => {
@@ -17,7 +17,7 @@ export default function useFullsize() {
     return () => {
       window.removeEventListener("resize", handler);
     };
-  });
+  }, []);
 
   return [width, height];
 }
