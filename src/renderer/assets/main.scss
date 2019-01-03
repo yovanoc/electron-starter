@@ -55,16 +55,11 @@
   --font-weight-raleway-bold: 700;
 
   /* Fonts */
-  --font-title: var(--font-weight-raleway-bold) var(--font-size-title)
-    var(--font-family-raleway);
-  --font-subtitle: var(--font-weight-dosis-semibold) var(--font-size-subtitle)
-    var(--font-family-dosis);
-  --font-bigger: var(--font-weight-dosis-bold) var(--font-size-bigger)
-    var(--font-family-dosis);
-  --font-default: var(--font-weight-raleway-medium) var(--font-size-default)
-    var(--font-family-raleway);
-  --font-label: var(--font-weight-raleway-medium) var(--font-size-default)
-    var(--font-family-raleway);
+  --font-title: var(--font-weight-raleway-bold) var(--font-size-title) var(--font-family-raleway);
+  --font-subtitle: var(--font-weight-dosis-semibold) var(--font-size-subtitle) var(--font-family-dosis);
+  --font-bigger: var(--font-weight-dosis-bold) var(--font-size-bigger) var(--font-family-dosis);
+  --font-default: var(--font-weight-raleway-medium) var(--font-size-default) var(--font-family-raleway);
+  --font-label: var(--font-weight-raleway-medium) var(--font-size-default) var(--font-family-raleway);
 
   /* Shadows */
   --box-shadow-default: 0 15px 40px rgba(0, 0, 0, 0.3);
@@ -205,12 +200,8 @@ a {
   transform: rotate(45deg);
   opacity: 0.8;
   pointer-events: none;
-  box-shadow: calc(-1 * (var(--separator-size) + var(--separator-spacing)))
-      calc(var(--separator-size) + var(--separator-spacing)) 0
-      var(--separator-color),
-    calc(var(--separator-size) + var(--separator-spacing))
-      calc(-1 * (var(--separator-size) + var(--separator-spacing))) 0
-      var(--separator-color);
+  box-shadow: calc(-1 * (var(--separator-size) + var(--separator-spacing))) calc(var(--separator-size) + var(--separator-spacing)) 0 var(--separator-color),
+    calc(var(--separator-size) + var(--separator-spacing)) calc(-1 * (var(--separator-size) + var(--separator-spacing))) 0 var(--separator-color);
 }
 
 /**
@@ -234,6 +225,6 @@ a {
 }
 
 .form-group:last-child,
-.form-group:last-child > :last-child {
+.form-group:last-child> :last-child {
   margin-bottom: 0;
 }

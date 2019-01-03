@@ -14,6 +14,8 @@ const WindowControls: FunctionComponent = props => {
     "m-window-controls__focused": windowIsFocused
   });
   const close = (e: React.MouseEvent<HTMLButtonElement>) => {
+    // tslint:disable-next-line:no-console
+    console.log("hello");
     e.preventDefault();
     remote.getCurrentWindow().close();
   };

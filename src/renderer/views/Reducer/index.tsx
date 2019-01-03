@@ -1,10 +1,5 @@
 import Langs, { Languages } from "common/langs";
-import React, {
-  FunctionComponent,
-  useEffect,
-  useReducer,
-  useState
-} from "react";
+import React, { FunctionComponent, useReducer } from "react";
 import ZaapButton from "renderer/components/zaap/ZaapButton";
 import {
   IReducerProps,
@@ -36,20 +31,6 @@ const Reducer: FunctionComponent<IReducerProps> = props => {
     }
   );
 
-  const [lang, setLang] = useState("<empty>");
-
-  const onLangChanged = () => {
-    setLang(Langs.go("update.newVersionDownloaded", "STARTER"));
-  };
-
-  useEffect(() => {
-    onLangChanged();
-    Langs.Changed.on(onLangChanged);
-    return () => {
-      Langs.Changed.off(onLangChanged);
-    };
-  });
-
   const changeEmail = (e: React.MouseEvent<HTMLButtonElement>) => {
     dispatch({
       emailAddress: `${Math.random().toString()}@gmail.com`,
@@ -68,7 +49,7 @@ const Reducer: FunctionComponent<IReducerProps> = props => {
 
   return (
     <div>
-      <span>Lang: {lang}</span>
+      <span>Lang: {Langs.go("update.newVersionDownloaded", "STARTER")}</span>
       <span>Email: {state.emailAddress}</span>
       <span>FirstName: {state.firstName}</span>
       <ZaapButton onClick={changeEmail}>
