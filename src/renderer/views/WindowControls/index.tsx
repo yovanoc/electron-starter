@@ -8,7 +8,7 @@ import "./styles.scss";
 
 const WindowControls: FunctionComponent = props => {
   const isDarwin = process.platform === "darwin";
-  const windowIsFocused = true;
+  const windowIsFocused = remote.getCurrentWindow().isFocused;
   const classes = classnames("m-window-controls", {
     "m-window-controls__darwin": isDarwin,
     "m-window-controls__focused": windowIsFocused

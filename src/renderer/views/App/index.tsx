@@ -1,20 +1,19 @@
 import classnames from "classnames";
 import { remote } from "electron";
-import React, { FunctionComponent, useContext, useState } from "react";
+import React, { FunctionComponent, useState } from "react";
 import { StoreContext } from "redux-react-hook";
-import { MainContext, MainContextProvider } from "renderer/data/MainContext";
+import { MainContextProvider } from "renderer/data/MainContext";
 import store from "renderer/store";
 // import ReactGL from "renderer/views/ReactGL";
 import Reducer from "renderer/views/Reducer";
 import WindowControls from "renderer/views/WindowControls";
-import ZaapDemo from "renderer/views/ZaapDemo";
+// import ZaapDemo from "renderer/views/ZaapDemo";
 import "./styles.scss";
 
 export type TabName = "zaap" | "reducer" | "webgl";
 
 const App: FunctionComponent = () => {
   const [currentTab, setCurrentTab] = useState<TabName>("reducer");
-  const { windowSizes } = useContext(MainContext);
 
   const currentWindow = remote.getCurrentWindow();
   const windowIsMaximized = currentWindow.isMaximized();
@@ -49,10 +48,7 @@ const App: FunctionComponent = () => {
 
               <ul className="m-app--menu">
                 <li onClick={showTab("zaap")} className={liClasses("zaap")}>
-                  Zaap{" "}
-                  {`Width: ${windowSizes.width} | Height: ${
-                    windowSizes.height
-                  }`}
+                  Zaap
                 </li>
                 <li
                   onClick={showTab("reducer")}
@@ -66,7 +62,7 @@ const App: FunctionComponent = () => {
               </ul>
             </header>
 
-            {currentTab === "zaap" && <ZaapDemo />}
+            {/* {currentTab === "zaap" && <ZaapDemo />} */}
             {currentTab === "reducer" && <Reducer />}
             {/* {currentTab === "webgl" && <ReactGL />} */}
           </div>
