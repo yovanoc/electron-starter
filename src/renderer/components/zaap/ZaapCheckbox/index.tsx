@@ -18,11 +18,11 @@ const ZaapCheckbox: FunctionComponent<IZaapCheckboxProps> = props => {
 
   const onChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     // tslint:disable-next-line:no-console
-    console.log(event);
+    console.log(event.target.checked);
     if (props.onChange) {
-      props.onChange(!value);
+      props.onChange(event.target.checked);
     }
-    setValue(!value);
+    setValue(event.target.checked);
   };
 
   return (

@@ -1,7 +1,7 @@
 import { createStore } from "redux";
 import { StoreActions } from "./actions";
 
-interface IStore {
+export interface IStore {
   num: number;
 }
 

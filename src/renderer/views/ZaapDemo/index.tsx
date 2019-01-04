@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from "react";
+import React, { FunctionComponent, useContext } from "react";
 import ZaapButton from "renderer/components/zaap/ZaapButton";
 import ZaapCheckbox from "renderer/components/zaap/ZaapCheckbox";
 import ZaapDropdown from "renderer/components/zaap/ZaapDropdown";
@@ -15,17 +15,18 @@ import ZaapOption from "renderer/components/zaap/ZaapSelect/ZaapOption";
 import ZaapTabs from "renderer/components/zaap/ZaapTabs";
 import ZaapTab from "renderer/components/zaap/ZaapTabs/ZaapTab";
 import ZaapVideo from "renderer/components/zaap/ZaapVideo";
-import { IZaapDemoProps } from "renderer/views/ZaapDemo/types";
+import { MainContext } from "renderer/data/MainContext";
 
-const ZaapDemo: FunctionComponent<IZaapDemoProps> = props => {
+const ZaapDemo: FunctionComponent = props => {
+  const { user } = useContext(MainContext);
   const checkboxChanged = (newValue: boolean) => {
     // tslint:disable-next-line:no-console
     console.log("changed", newValue);
   };
 
   return (
-    <div>
-      <ZaapHrTitle>Starter</ZaapHrTitle>
+    <div style={{ flexGrow: 1 }}>
+      <ZaapHrTitle>Starter {user && user.displayName}</ZaapHrTitle>
       <ZaapButton>Hello</ZaapButton>
       <ZaapButton disabled={true}>Disabled</ZaapButton>
       <ZaapButton>

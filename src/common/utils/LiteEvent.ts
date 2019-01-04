@@ -1,20 +1,20 @@
 export interface ILiteEvent<T> {
-  on(handler: (data?: T) => void): void;
-  off(handler: (data?: T) => void): void;
+  on(handler: (data: T) => void): void;
+  off(handler: (data: T) => void): void;
 }
 
 export default class LiteEvent<T> implements ILiteEvent<T> {
-  private handlers: Array<(data?: T) => void> = [];
+  private handlers: Array<(data: T) => void> = [];
 
-  public on(handler: (data?: T) => void): void {
+  public on(handler: (data: T) => void): void {
     this.handlers.push(handler);
   }
 
-  public off(handler: (data?: T) => void): void {
+  public off(handler: (data: T) => void): void {
     this.handlers = this.handlers.filter(h => h !== handler);
   }
 
-  public trigger(data?: T) {
+  public trigger(data: T) {
     this.handlers.slice(0).forEach(h => h(data));
   }
 

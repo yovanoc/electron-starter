@@ -1,4 +1,6 @@
-export interface IIncrementAction {
+import { Action } from "redux";
+
+export interface IIncrementAction extends Action {
   type: "INCREMENT";
 }
 

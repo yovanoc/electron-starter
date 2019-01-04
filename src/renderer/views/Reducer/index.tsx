@@ -1,13 +1,19 @@
 import Langs, { Languages } from "common/langs";
-import React, { FunctionComponent, useReducer } from "react";
+import React, { FunctionComponent, useCallback, useReducer } from "react";
+import { useMappedState } from "redux-react-hook";
 import ZaapButton from "renderer/components/zaap/ZaapButton";
+import { IStore } from "renderer/store";
 import {
   IReducerProps,
   IReducerState,
   ReducerActions
 } from "renderer/views/Reducer/types";
+import ShowStore from "../ShowStore";
 
 const Reducer: FunctionComponent<IReducerProps> = props => {
+  const mapState = useCallback((state2: IStore) => state2.num, []);
+  const num = useMappedState(mapState);
+
   const [state, dispatch] = useReducer(
     (s: IReducerState, action: ReducerActions) => {
       switch (action.type) {
@@ -58,6 +64,8 @@ const Reducer: FunctionComponent<IReducerProps> = props => {
       <ZaapButton onClick={changeFirstname}>
         Random Firstname (Change Lang to EN)
       </ZaapButton>
+      {num}
+      <ShowStore />
     </div>
   );
 };

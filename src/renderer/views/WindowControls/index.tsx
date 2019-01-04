@@ -31,15 +31,14 @@ const WindowControls: FunctionComponent = props => {
     e.preventDefault();
   };
 
-  const isDev = isDevelopment;
-  const env = process.env.NODE_ENV;
-
   return (
     <div className={classes}>
       <div className="m-drag" onDoubleClick={maximize} />
 
       <div className="m-window-controls--info">
-        {isDev && <React.Fragment>{env}</React.Fragment>}
+        {isDevelopment && (
+          <React.Fragment>{process.env.NODE_ENV}</React.Fragment>
+        )}
       </div>
 
       <div className="m-window-controls--product-name">Starter</div>

@@ -52,9 +52,7 @@ export default class Main {
     Main.mainWindow.on("closed", Main.onClose);
     Main.mainWindow.webContents.on("devtools-opened", () => {
       Main.mainWindow!.focus();
-      setImmediate(() => {
-        Main.mainWindow!.focus();
-      });
+      setImmediate(Main.mainWindow!.focus);
     });
     if (isDevelopment) {
       Main.BrowserWindow.addDevToolsExtension(join(__static, "devtools/react"));
