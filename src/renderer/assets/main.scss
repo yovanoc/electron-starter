@@ -165,17 +165,17 @@ a {
 }
 
 /**
-    * Allows us to disable all animations in a block
-    * Useful to re-trigger animation via JS
-    */
+  * Allows us to disable all animations in a block
+  * Useful to re-trigger animation via JS
+  */
 .no-animation,
 .no-animation * {
   animation: none !important;
 }
 
 /**
-    * Squares separator
-    */
+  * Squares separator
+  */
 .separator {
   --separator-size: 10px;
   --separator-spacing: 4px;
@@ -205,8 +205,8 @@ a {
 }
 
 /**
-    * Forms
-    */
+  * Forms
+  */
 .form-group {
   margin: 20px 0;
 }

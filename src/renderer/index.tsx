@@ -5,8 +5,8 @@ import { ipcRenderer, remote } from "electron";
 import React from "react";
 import { render } from "react-dom";
 import "renderer/assets/main.scss";
+import ZaapLoading from "renderer/components/zaap/ZaapLoading";
 import { initialize, presence, signin } from "renderer/FirebaseHelpers";
-import ZaapLoading from "./components/zaap/ZaapLoading";
 
 if (!isDevelopment) {
   init({
@@ -20,7 +20,7 @@ const toLoad = () => {
   initialize();
   presence();
 
-  signin("yovano_c@outlook.com", "Kyra03112016");
+  signin("yovano_c@outlook.com", "supermdp");
 };
 
 const loader = () => {

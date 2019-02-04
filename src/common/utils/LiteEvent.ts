@@ -1,6 +1,7 @@
 export interface ILiteEvent<T> {
   on(handler: (data: T) => void): void;
   off(handler: (data: T) => void): void;
+  once(handler: (data: T) => void): void;
 }
 
 export default class LiteEvent<T> implements ILiteEvent<T> {
@@ -12,6 +13,14 @@ export default class LiteEvent<T> implements ILiteEvent<T> {
 
   public off(handler: (data: T) => void): void {
     this.handlers = this.handlers.filter(h => h !== handler);
+  }
+
+  public once(handler: (data: T) => void): void {
+    const newHandler = (data: T) => {
+      handler(data);
+      this.off(newHandler);
+    }
+    this.on(newHandler);
   }
 
   public trigger(data: T) {

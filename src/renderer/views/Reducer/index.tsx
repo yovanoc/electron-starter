@@ -1,26 +1,30 @@
 import Langs, { Languages } from "common/langs";
 import React, {
   FunctionComponent,
-  useCallback,
   useContext,
-  useReducer
+  useReducer,
+  useState
 } from "react";
-import { useMappedState } from "redux-react-hook";
 import ZaapButton from "renderer/components/zaap/ZaapButton";
 import { MainContext } from "renderer/data/MainContext";
-import { IStore } from "renderer/store";
+import useInterval from "renderer/hooks/useInterval";
 import {
   IReducerProps,
   IReducerState,
   ReducerActions
 } from "renderer/views/Reducer/types";
-import ShowStore from "../ShowStore";
 
 const Reducer: FunctionComponent<IReducerProps> = props => {
-  const mapState = useCallback((state2: IStore) => state2.num, []);
-  const num = useMappedState(mapState);
-
   const { windowSizes } = useContext(MainContext);
+
+  const [count, setCount] = useState(0);
+  const [delay, setDelay] = useState(1000);
+  useInterval(
+    () => {
+      setCount(count + 1);
+    },
+    delay <= 0 ? null : delay
+  );
 
   const [state, dispatch] = useReducer(
     (s: IReducerState, action: ReducerActions) => {
@@ -44,6 +48,10 @@ const Reducer: FunctionComponent<IReducerProps> = props => {
       firstName: "myName"
     }
   );
+
+  function changeDelay(event: React.ChangeEvent<HTMLInputElement>) {
+    setDelay(event.target.valueAsNumber);
+  }
 
   const changeEmail = (e: React.MouseEvent<HTMLButtonElement>) => {
     dispatch({
@@ -72,9 +80,10 @@ const Reducer: FunctionComponent<IReducerProps> = props => {
       <ZaapButton onClick={changeFirstname}>
         Random Firstname (Change Lang to EN)
       </ZaapButton>
-      <ShowStore />
+      <div>{JSON.stringify(windowSizes)}</div>
       <div>
-        {num} & {JSON.stringify(windowSizes)}
+        <span>{count}</span>
+        <input type="number" value={delay} onChange={changeDelay} />
       </div>
     </div>
   );

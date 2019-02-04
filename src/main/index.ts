@@ -2,6 +2,7 @@ import { captureException, init } from "@sentry/electron";
 import { isDevelopment } from "common/env";
 import { app, BrowserWindow } from "electron";
 import log from "electron-log";
+import "./ipc";
 import Main from "./main";
 
 if (!isDevelopment) {
